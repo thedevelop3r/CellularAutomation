@@ -4,11 +4,14 @@ namespace CellularAutomation
 {
 	public class Matrix
 	{
-		
+		//declare vars: mapMatrix, matrix
+		//rows, and matrix columns
 		bool[,] mapMatrix;
 		int rows;
 		int columns;
 
+		//defalt constructor- needs int rows
+		//and columns
 		public Matrix (int rows, int columns)
 		{
 			this.rows = rows;
