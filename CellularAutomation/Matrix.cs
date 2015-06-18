@@ -24,16 +24,16 @@ namespace CellularAutomation
 		{
 			string[,] image = new string[rows,columns];
 
-			for (int x = 0; x < rows; x++)
+			for (int y = 0; y < rows; y++)
 			{
-				for (int y = 0; y < columns; y++)
+				for (int x = 0; x < columns; x++)
 				{
-					if (mapMatrix [x, y] == true)
+					if (mapMatrix [y, x] == true)
 					{
-						image [x, y] = "x";
+						image [y, x] = "x";
 					} else
 					{
-						image [x, y] = " ";
+						image [y, x] = " ";
 					}
 				}
 			}
@@ -43,11 +43,11 @@ namespace CellularAutomation
 		//prints 2d array in matrix form
 		public void PrintMatrix(string [,] image)
 		{
-			for (int x = 0; x < rows; x++)
+			for (int y = 0; y < rows; y++)
 			{
-				for (int y = 0; y < columns; y++)
+				for (int x = 0; x < columns; x++)
 				{
-					Console.Write (image [x, y]);
+					Console.Write (image [y, x]);
 				}
 				Console.Write ("\n");
 			}
@@ -59,16 +59,16 @@ namespace CellularAutomation
 			Random r = new Random ();
 		
 			//iterate through all coords in 2d array and set true or false
-			for (int x = 0; x < rows; x++)
+			for (int y = 0; y < rows; y++)
 			{
-				for (int y = 0; y < columns; y++)
+				for (int x = 0; x < columns; x++)
 				{
 					if (r.Next (100) < percentRandom)
 					{
-						mapMatrix [x, y] = true;
+						mapMatrix [y, x] = true;
 					} else
 					{
-						mapMatrix [x, y] = false;
+						mapMatrix [y, x] = false;
 					}
 				}
 			}
@@ -76,14 +76,14 @@ namespace CellularAutomation
 		}
 
 		//gets number of cells around a given cell that hold true
-		private int CountAliveNeighbors(bool[,] mapMatrix, int x, int y)
+		private int CountAliveNeighbors(bool[,] mapMatrix, int y, int x)
 		{
 			int aliveNeighbors = 0;
 
 			//iterate through surrounding coords in 2d array and check if true
-			for (int i = x-1; i < x+2; i++)
+			for (int i = y-1; i < y+2; i++)
 			{
-				for (int j = y-1; j < y+2; j++) {
+				for (int j = x-1; j < x+2; j++) {
 					if (mapMatrix [i, j] == true)
 					{
 						aliveNeighbors++;
@@ -99,16 +99,16 @@ namespace CellularAutomation
 			bool[,] newMapMatrix = mapMatrix;
 
 			//iterate through all coords
-			for (int x = 1; x < rows-1; x++)
+			for (int y = 1; y < rows-1; y++)
 			{
-				for (int y = 1; y < columns-1; y++)
+				for (int x = 1; x < columns-1; x++)
 				{
-					if (CountAliveNeighbors (mapMatrix, x, y) > 4)
+					if (CountAliveNeighbors (mapMatrix, y, x) > 4)
 					{
-						newMapMatrix [x, y] = true;
+						newMapMatrix [y, x] = true;
 					} else
 					{
-						newMapMatrix [x, y] = false;
+						newMapMatrix [y, x] = false;
 					}		 
 				}
 			}
@@ -121,20 +121,20 @@ namespace CellularAutomation
 			bool[,] newMapMatrix = mapMatrix;
 
 			//iterate through all coords on left and right
-			for (int x = 0; x < rows; x += rows-1)
+			for (int y = 0; y < rows; y += rows-1)
 			{
-				for (int y = 0; y < columns; y++)
+				for (int x = 0; x < columns; x++)
 				{
-					newMapMatrix [x, y] = false;
+					newMapMatrix [y, x] = false;
 				}
 			}
 
 			//iterate through all coords on top and bottom
-			for (int y = 0; y < columns; y += columns-1)
+			for (int x = 0; x < columns; x += columns-1)
 			{
-				for (int x = 0; x < rows; x++)
+				for (int y = 0; y < rows; y++)
 				{
-					newMapMatrix [x, y] = false;
+					newMapMatrix [y, x] = false;
 				}
 			}
 			return newMapMatrix;
@@ -146,20 +146,20 @@ namespace CellularAutomation
 			bool[,] newMapMatrix = mapMatrix;
 
 			//iterate through coords on left and right
-			for (int x = 0; x < rows; x += rows-1)
+			for (int y = 0; y < rows; y += rows-1)
 			{
-				for (int y = 0; y < columns; y++)
+				for (int x = 0; x < columns; x++)
 				{
-					newMapMatrix [x, y] = true;
+					newMapMatrix [y, x] = true;
 				}
 			}
 
 			//iterate through coords on top and bottom
-			for (int y = 0; y < columns; y += columns-1)
+			for (int x = 0; x < columns; x += columns-1)
 			{
-				for (int x = 0; x < rows; x++)
+				for (int y = 0; y < rows; y++)
 				{
-					newMapMatrix [x, y] = true;
+					newMapMatrix [y, x] = true;
 				}
 			}
 			return newMapMatrix;
