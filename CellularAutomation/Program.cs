@@ -7,7 +7,7 @@ namespace CellularAutomation
 		//declare intial vars rows, columns,
 		//and % random (probability of 
 		//randomly setting coord true)
-		static int rows = 30;
+		static int rows = 22;
 		static int columns = 80;
 		static int percentRandom = 45;
 
@@ -22,7 +22,7 @@ namespace CellularAutomation
 			map.RandomizeMatrix (percentRandom);
 
 			//set borders
-			map.BordersOn ();
+			map.BordersOff ();
 
 			//do x simulation steps
 			for (int i = 0; i < 4; i++)
