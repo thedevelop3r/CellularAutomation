@@ -8,3 +8,8 @@
 /home/robbie/monodevelop/CellularAutomation/CellularAutomation/bin/Debug/CellularAutomation.exe
 /home/robbie/monodevelop/CellularAutomation/CellularAutomation/obj/x86/Debug/CellularAutomation.exe
 /home/robbie/monodevelop/CellularAutomation/CellularAutomation/obj/x86/Debug/CellularAutomation.exe.mdb
+/home/robbie/code/monodevelop/CellularAutomation/CellularAutomation/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/robbie/code/monodevelop/CellularAutomation/CellularAutomation/bin/Debug/CellularAutomation.exe.mdb
+/home/robbie/code/monodevelop/CellularAutomation/CellularAutomation/bin/Debug/CellularAutomation.exe
+/home/robbie/code/monodevelop/CellularAutomation/CellularAutomation/obj/x86/Debug/CellularAutomation.exe
+/home/robbie/code/monodevelop/CellularAutomation/CellularAutomation/obj/x86/Debug/CellularAutomation.exe.mdb
